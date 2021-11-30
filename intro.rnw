@@ -1,0 +1,66 @@
+\documentclass{beamer}
+%Information to be included in the title page:
+\title{Introduction}
+\author{Drew Hultquist}
+\institute{UNL}
+\usepackage{graphicx}
+\date{2021}
+
+\begin{document}
+
+\frame{\titlepage}
+%about me slide
+\begin{frame}
+\frametitle{About Me}
+\begin{itemize}
+ \item Birthday: March 20th
+ \item Grew up around Minden Nebraska
+ \item Birthplace: Hastings Nebraska
+ \item Program: 1st year masters student statistics
+ \item Expected to graduate on May 2023
+\end{itemize}
+\end{frame}
+
+%favorite animal slide
+\begin{frame}{My Favorite Animal: Chicken}
+\centering
+    \includegraphics[height=6cm]{silver crested polish chicken_files/SL-Polish-Pullet.jpg}
+
+\end{frame}
+
+%plot slide
+\begin{frame}[fragile]
+\frametitle{Make a plot}
+
+
+<<plotsomething, echo = FALSE, message = FALSE, warning=FALSE, fig.width=3.5, fig.height=3.5, fig.align='center'>>=
+
+## Favorite Plot
+
+if (!"palmerpenguins" %in% installed.packages()) {
+  remotes::install_github("allisonhorst/palmerpenguins")
+}
+library(palmerpenguins)
+library(ggplot2)
+
+plot = ggplot(penguins, aes(x = body_mass_g, y = bill_length_mm, color = species)) +
+  geom_point(size=.01) +
+  theme(panel.background = element_rect(fill="blue"),
+        panel.grid.major = element_line(colour = "red", size=5),
+        panel.grid.minor = element_line(colour = "green", size=5))
+plot
+
+
+@
+
+\end{frame}
+
+
+%CV link slide
+
+\begin{frame}
+\frametitle {Here is a link to my CV:}
+{https://github.com/stat850-unl/11-presentation-ahultquist-1/blob/master/CV.pdf}
+\end{frame}
+
+\end{document}
